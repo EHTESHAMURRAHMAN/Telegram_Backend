@@ -1,12 +1,23 @@
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="my_flutter_login_bot"
-    data-size="large" data-on-auth="onTelegramAuth">
-    </script>
+<!DOCTYPE html>
+<html>
 
-<script>
-    function onTelegramAuth(user) {
-        // Sends user data to your Render backend
-        window.location.href =
-            "https://telegram-backend-fnp0.onrender.com/telegram-login?" +
-            new URLSearchParams(user).toString();
-    }
-</script>
+<head>
+    <title>Telegram Login</title>
+</head>
+
+<body>
+    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="my_flutter_login_bot"
+        data-size="large" data-on-auth="onTelegramAuth">
+        </script>
+
+    <script>
+        function onTelegramAuth(user) {
+            // Redirect to your Render backend
+            window.location.href =
+                "https://telegram-backend-fnp0.onrender.com/telegram-login?" +
+                new URLSearchParams(user).toString();
+        }
+    </script>
+</body>
+
+</html>

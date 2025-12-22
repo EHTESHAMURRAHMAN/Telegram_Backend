@@ -1,18 +1,25 @@
 {
   "name": "telegram-ezycart",
   "version": "1.0.0",
+  "description": "Telegram Login Backend for Flutter",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "telegram",
+    "login",
+    "flutter",
+    "express"
+  ],
+  "author": "Your Name",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "crypto": "^1.0.1",
-    "express": "^5.2.1",
-    "node": "^24.12.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.11"
   }
 }
