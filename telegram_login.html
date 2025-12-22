@@ -4,8 +4,9 @@
 
 <script>
     function onTelegramAuth(user) {
+        // Sends user data to your Render backend
         window.location.href =
-            "http://localhost:3000/telegram-login?" +
+            "https://telegram-backend-fnp0.onrender.com/telegram-login?" +
             new URLSearchParams(user).toString();
     }
 </script>

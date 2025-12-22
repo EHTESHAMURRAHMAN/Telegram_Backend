@@ -36,9 +36,8 @@ function verifyTelegram(data) {
     return calculatedHash === hash;
 }
 
-// Telegram login route
 app.get("/telegram-login", (req, res) => {
-    const data = { ...req.query }; // copy query params
+    const data = { ...req.query };
 
     if (!verifyTelegram(data)) {
         console.log("❌ Invalid Login", data);
@@ -47,7 +46,7 @@ app.get("/telegram-login", (req, res) => {
 
     console.log("✅ Telegram Login Success", data);
 
-    // Redirect for Flutter / WebView deep-link
+    // Redirect to app or WebView
     return res.redirect("myapp://telegram-success");
 });
 
