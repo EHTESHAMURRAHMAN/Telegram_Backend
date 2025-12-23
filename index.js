@@ -63,25 +63,22 @@ app.get("/telegram-login", (req, res) => {
 
   // For testing: Return JSON with user data (easy for Postman/Chrome)
 
-  const encodedUserData = encodeURIComponent(
-    JSON.stringify({
+  const userData = {
       id: data.id,
       first_name: data.first_name,
+      last_name: data.last_name || null,
       username: data.username || null,
       photo_url: data.photo_url || null,
-    })
-  );
+      auth_date: data.auth_date
+  }
+  
+const encodedData = encodeURIComponent(JSON.stringify(userData));
 
-  return res.redirect(`eazycart://telegram-login?data=${encodedUserData}`);
+return res.redirect(
+  `eazycart://telegram-login?data=${encodedData}`
+);
 
-  // const userData = {
-  //     id: data.id,
-  //     first_name: data.first_name,
-  //     last_name: data.last_name || null,
-  //     username: data.username || null,
-  //     photo_url: data.photo_url || null,
-  //     auth_date: data.auth_date
-  // };
+;
 
   // return res.redirect(
   //     `eazycart://telegram-login?data=${userData}`
