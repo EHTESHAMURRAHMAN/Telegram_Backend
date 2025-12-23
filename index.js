@@ -68,7 +68,7 @@ app.get("/telegram-login", (req, res) => {
     };
 
     return res.redirect(
-        `Eazycart://telegram-login?data=${userData}`
+        `eazycart://telegram-login?data=${userData}`
     );
 });
 
