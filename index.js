@@ -4,8 +4,8 @@ const path = require("path");
 const app = express();
 
 const BOT_TOKEN =
-  process.env.BOT_TOKEN || "7566955518:AAHSMYmhzkQK8pZ22HyanzYaPChcf-r3XW4" 
-  //"8415890920:AAGsBG2fe6PXsrjjjy9eiYqDAOH0AsfHuik";
+  process.env.BOT_TOKEN || "7566955518:AAHSMYmhzkQK8pZ22HyanzYaPChcf-r3XW4";
+//"8415890920:AAGsBG2fe6PXsrjjjy9eiYqDAOH0AsfHuik";
 function verifyTelegram(data) {
   const { hash, ...dataFields } = data;
   const authDate = Number(dataFields.auth_date);
