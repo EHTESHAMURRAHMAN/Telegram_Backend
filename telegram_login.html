@@ -1,102 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login with Telegram</title>
-
-    <style>
-      body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #1c92d2, #f2fcfe);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      }
-
-      .login-card {
-        background: #ffffff;
-        padding: 32px 28px;
-        border-radius: 16px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        text-align: center;
-        width: 100%;
-        max-width: 360px;
-      }
-
-      .login-card h2 {
-        margin: 0 0 8px;
-        font-size: 22px;
-        color: #222;
-      }
-
-      .login-card p {
-        margin: 0 0 24px;
-        font-size: 14px;
-        color: #666;
-      }
-
-      .telegram-wrapper {
-        display: flex;
-        justify-content: center;
-      }
-
-      .footer-text {
-        margin-top: 20px;
-        font-size: 12px;
-        color: #999;
-      }
-    </style>
+    <title>Telegram Login</title>
   </head>
 
   <body>
-    <div class="login-card">
-      <h2>Login with Telegram</h2>
-      <p>Secure & instant authentication using Telegram</p>
-
-      <div class="telegram-wrapper">
-        <script
-          async
-          src="https://telegram.org/js/telegram-widget.js?22"
-          data-telegram-login="eazycart_login_bot"
-          data-size="large"
-          data-radius="12"
-          data-userpic="true"
-          data-on-auth="onTelegramAuth"
-        ></script>
-      </div>
-
-      <div class="footer-text">
-        You will be redirected back to the app after login
-      </div>
-    </div>
+      <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="my_flutter_login8778_bot"
+        data-size="large" data-on-auth="onTelegramAuth">
+        </script>
+    <!-- <script
+      async
+      src="https://telegram.org/js/telegram-widget.js?22"
+      data-telegram-login="my_flutter_login_bot"
+      data-size="large"
+    ></script> -->
+    <!-- data-on-auth="onTelegramAuth" -->
 
     <script>
       function onTelegramAuth(user) {
-        const userData = {
-          id: user.id,
-          first_name: user.first_name,
-          last_name: user.last_name || null,
-          username: user.username || null,
-          photo_url: user.photo_url || null,
-          auth_date: user.auth_date,
-          hash: user.hash, // Important: include hash for server-side verification!
-        };
-
-        const encodedData = encodeURIComponent(JSON.stringify(userData));
-
-        // Direct redirect to app (bypasses extra params)
-        window.location.href = `eazycart://telegram-login?data=${encodedData}`;
+        window.location.href =
+          "https://telegram-backend-fnp0.onrender.com/telegram-login?" +
+          new URLSearchParams(user).toString();
       }
-      //   function onTelegramAuth(user) {
-      //     const params = new URLSearchParams(user).toString();
-
-      //     window.location.href =
-      //       "https://telegram-backend-fnp0.onrender.com/telegram-login?" + params;
-      //   }
     </script>
   </body>
 </html>

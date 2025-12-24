@@ -62,27 +62,16 @@ app.get("/telegram-login", (req, res) => {
   console.log("✅ Telegram Login Success", data);
 
   // For testing: Return JSON with user data (easy for Postman/Chrome)
-
   const userData = {
-      id: data.id,
-      first_name: data.first_name,
-      last_name: data.last_name || null,
-      username: data.username || null,
-      photo_url: data.photo_url || null,
-      auth_date: data.auth_date
-  }
-  
-const encodedData = encodeURIComponent(JSON.stringify(userData));
+    id: data.id,
+    first_name: data.first_name,
+    last_name: data.last_name || null,
+    username: data.username || null,
+    photo_url: data.photo_url || null,
+    auth_date: data.auth_date,
+  };
 
-return res.redirect(
-  `eazycart://telegram-login?data=${encodedData}`
-);
-
-;
-
-  // return res.redirect(
-  //     `eazycart://telegram-login?data=${userData}`
-  // );
+  return res.redirect(`eazycart://telegram-login?data=${userData}`);
 });
 
 // Render uses dynamic port; fallback for local
